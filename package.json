@@ -1,0 +1,11 @@
+{
+  "name": "todreams",
+  "version": "1.0.0",
+  "description": "Application for help you organize your goals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo B. Silva",
+  "license": "ISC"
+}
