@@ -4,7 +4,9 @@
   "description": "Application for help you organize your goals",
   "main": "index.js",
   "scripts": {
-    "app-dev": "cd ./backend && npm run server-dev"
+    "server-dev": "cd ./backend && npm run server-dev",
+    "client-dev": "cd ./frontend && npm start",
+    "app-dev": "npm-run-all --parallel server-dev client-dev"
   },
   "author": "Leonardo B. Silva",
   "license": "ISC",
