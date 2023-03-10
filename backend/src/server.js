@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // ToDream's App routes
-app.use('/todreams/app', routes)
+app.use('/todreams', routes)
 
 
 

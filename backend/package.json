@@ -4,7 +4,7 @@
   "description": "Backend ToDreams App",
   "main": "./src/server.js",
   "scripts": {
-    "app-dev": "nodemon ./src/server.js"
+    "server-dev": "nodemon ./src/server.js"
   },
   "author": "Leonardo B. Silva",
   "license": "ISC",
@@ -15,8 +15,7 @@
     "dotenv": "16.0.3",
     "express": "4.18.2",
     "jsonwebtoken": "9.0.0",
-    "mongoose": "7.0.0",
-    "pm2": "5.2.2"
+    "mongoose": "7.0.0"
   },
   "devDependencies": {
     "nodemon": "2.0.21"

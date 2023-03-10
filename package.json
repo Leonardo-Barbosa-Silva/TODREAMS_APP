@@ -4,8 +4,14 @@
   "description": "Application for help you organize your goals",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "app-dev": "cd ./backend && npm run server-dev"
   },
   "author": "Leonardo B. Silva",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pm2": "5.2.2"
+  },
+  "devDependencies": {
+    "npm-run-all": "4.1.5"
+  }
 }
