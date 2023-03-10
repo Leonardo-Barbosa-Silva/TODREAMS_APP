@@ -29,9 +29,9 @@ module.exports = async (req, res, next) => {
             if (error) return res.status(401).json({ message: 'User token invalid' })
 
             req.user = await usersModel.findById(decoded.id)
-        })
 
-        next()
+            next()
+        })
 
     } catch (error) {
         console.log(error)

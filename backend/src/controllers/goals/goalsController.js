@@ -1,4 +1,5 @@
 const goalsModel = require('../../models/goal/goalsModel')
+const usersModel = require('../../models/user/usersModel')
 
 
 module.exports = {
@@ -8,19 +9,18 @@ module.exports = {
     //@acess Private
     getMyGoals: async (req, res) => {
         try {
-            // Check user
-            const user = req.user
 
-            if (!user) {
+            // Check user auth
+            if (!req.user) {
                 return res.status(401).json({ message: 'User not logged' })
             }
 
             const goals = await goalsModel.find({
-                user: user._id
+                user: req.user._id
             })
 
-            return res.status(201).json({
-                message: 'Successfully update goal',
+            return res.status(200).json({
+                message: 'Successfully get user goals',
                 item: goals
             })
 
@@ -35,22 +35,15 @@ module.exports = {
     //@acess Private
     setGoal: async (req, res) => {
         try {
-            // Check user
-            const user = req.user
 
-            if (!user) {
+            // Check user auth
+            if (!req.user) {
                 return res.status(401).json({ message: 'User not logged' })
             }
 
-            const goalText = req.body.text
-
-            if (!goalText) {
-                return res.status(400).json( { message: 'Please add some text value' })
-            }
-
             const goalCreated = await goalsModel.create({
-                user: user._id,
-                text
+                user: req.user._id,
+                text: req.body.text || ""
             })
 
             return res.status(201).json({
@@ -69,10 +62,9 @@ module.exports = {
     //@acess Private
     updateGoal: async (req, res) => {
         try {
-            // Check user
-            const user = req.user
 
-            if (!user) {
+            // Check user auth
+            if (!req.user) {
                 return res.status(401).json({ message: 'User not logged' })
             }
 
@@ -81,9 +73,12 @@ module.exports = {
             if (!goal) {
                 return res.status(400).json({ message: 'Goal not found' })
             }
+            if (goal.user.toString() !== req.user._id.toString()) {
+                return res.status(401).json({ message: 'User not allowed to update this goal' })
+            }
 
             const goalUpdated = await goalsModel.findByIdAndUpdate(req.params.id, {
-                text: req.body.text
+                text: req.body.text || ""
             }, {
                 new: true
             })
@@ -104,10 +99,9 @@ module.exports = {
     //@acess Private
     deleteGoal: async (req, res) => {
         try {
-            // Check user
-            const user = req.user
 
-            if (!user) {
+            // Check user auth
+            if (!req.user) {
                 return res.status(401).json({ message: 'User not logged' })
             }
 
@@ -116,11 +110,14 @@ module.exports = {
             if (!goal) {
                 return res.status(400).json({ message: 'Goal not found' })
             }
+            if (goal.user.toString() !== req.user._id.toString()) {
+                return res.status(401).json({ message:'User not allowed to delete this goal' })
+            }
 
-            const goalDeleted = await goalsModel.findByIdAndDelete(req.params.id)
+            await goalsModel.findByIdAndDelete(req.params.id)
 
             return res.status(201).json({
-                message: 'Successfully deleted goal',
+                message: 'Successfully deleted goal'
             })
 
         } catch (error) {
