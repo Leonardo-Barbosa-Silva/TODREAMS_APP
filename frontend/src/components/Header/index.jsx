@@ -9,7 +9,7 @@ export default function Header() {
             <div className="header-logo">
                 <Link to="/" className="header-logo-link">
                     <div className="header-logo-img">
-                        <img src="dream-catcher.png" alt="dreams catcher png" />
+                        <img src="./pictures/dream-catcher.png" alt="dreams catcher png" />
                     </div>
                         <h1>ToDreams</h1>
                 </Link>
