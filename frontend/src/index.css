@@ -179,27 +179,36 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 1;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
 }
 
-.login-heading-img {
+.form-user-heading-img {
     width: 150px;
     height: 150px;
     margin: 20px auto;
 }
 
-.login-heading-img img {
+.form-user-heading-img img {
     width: 100%;
 }
 
 
-.login-page-content .login-heading h2 {
+.form-user-heading h2 {
     text-align: center;
-    font-family: 'Merriweather';
+    font-family: 'Pacifico';
+    font-weight: lighter;
+    letter-spacing: 1px;
     font-size: 25px;
     margin-bottom: 50px;
 }
 
-.login-page-content .form {
+.form-user-line {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    background-color: #000;
+}
+
+.form-user {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -207,11 +216,11 @@ body {
     align-items: center;
 }
 
-.form .form-group {
+.form-user .form-group {
     margin: 20px 0;
 }
 
-.form .form-group input {
+.form-user .form-group input {
     width: 300px;
     padding: 8px 5px;
     border-radius: 5px;
@@ -220,7 +229,7 @@ body {
     font-size: 13px;
 }
 
-.form form .submit-form {
+.form-user form .submit-form {
     width: 300px;
     padding: 8px 5px;
     cursor: pointer;
@@ -232,4 +241,33 @@ body {
     font-weight: bold;
     font-size: 15px;
     letter-spacing: 1px;
+}
+
+.register-page-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register-page-content {
+    width: 40vw;
+    min-height: 80vh;
+    margin: 100px 0 0 0;
+    background-color: rgba(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.register-page-content .form-user-heading h2 {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 40px;
+    color: #3d3d3d
 }

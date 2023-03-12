@@ -16,6 +16,12 @@ export default function Login() {
         })
     }
 
+    function onSubmitForm(e) {
+        e.preventDefault()
+        console.log(e.target)
+    }
+
+
     const { email, password } = formData
 
     return (
@@ -23,15 +29,17 @@ export default function Login() {
             <Header />
 
             <div className="login-page-content">
-                <section className="login-heading">
-                    <div className="login-heading-img">
+                <section className="form-user-heading">
+                    <div className="form-user-heading-img">
                         <img src="./pictures/dream-catcher.png" alt=""/>
                     </div>
-                    <h2>Yor reality is made from your thoughts.</h2>
+                    <h2>Your reality is made from your thoughts.</h2>
                 </section>
 
-                <section className="form">
-                    <form>
+                <hr className="form-user-line"/>
+
+                <section className="form-user">
+                    <form onSubmit={onSubmitForm} >
                         <div className="form-group">
                             <input 
                                 type="email"
