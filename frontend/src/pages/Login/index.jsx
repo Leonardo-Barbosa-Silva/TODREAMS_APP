@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Header from '../../components/Header'
 
 
 export default function Login() {
@@ -26,8 +25,6 @@ export default function Login() {
 
     return (
         <div className="login-page-container">
-            <Header />
-
             <div className="login-page-content">
                 <section className="form-user-heading">
                     <div className="form-user-heading-img">

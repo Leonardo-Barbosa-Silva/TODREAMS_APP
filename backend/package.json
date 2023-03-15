@@ -4,7 +4,7 @@
   "description": "Backend ToDreams App",
   "main": "./src/server.js",
   "scripts": {
-    "server-dev": "nodemon ./src/server.js"
+    "server-dev": "nodemon"
   },
   "author": "Leonardo B. Silva",
   "license": "ISC",

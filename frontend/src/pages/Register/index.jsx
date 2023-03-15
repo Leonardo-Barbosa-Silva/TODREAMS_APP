@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Header from '../../components/Header'
 
 
 export default function Register() {
@@ -28,8 +27,6 @@ export default function Register() {
 
     return (
         <div className="register-page-container">
-            <Header />
-
             <div className="register-page-content">
                 <section className="form-user-heading">
                     <h2>Please create an account</h2>
@@ -83,7 +80,7 @@ export default function Register() {
                                     onChange={onChangeForm}
                             />
                         </div>
-                        <input type="submit" value="Login" className="submit-form"/>
+                        <input type="submit" value="Register" className="submit-form"/>
                     </form>
                 </section>
             </div>
